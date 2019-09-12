@@ -9,15 +9,8 @@ import { MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolb
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarEditComponent } from './car-edit/car-edit.component';
 import { FormsModule } from '@angular/forms';
-import { OktaAuthModule } from '@okta/okta-angular';
-import { AuthInterceptor } from './shared/okta/auth.interceptor';
 import { HomeComponent } from './home/home.component';
 
-const config = {
-  issuer: 'https://dev-737523.oktapreview.com/oauth2/default',
-  redirectUri: 'http://localhost:4200/implicit/callback',
-  clientId: '0oagqzcu86BBOq2jF0h7'
-};
 
 @NgModule({
   declarations: [
@@ -36,10 +29,9 @@ const config = {
     MatInputModule,
     MatListModule,
     MatToolbarModule,
-    FormsModule,
-    OktaAuthModule.initAuth(config)
+    FormsModule
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
